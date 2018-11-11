@@ -113,33 +113,27 @@ body {
     color:rgb(167, 167, 167);
 }
 
-#IndexArchive {
-    margin: 30px auto;
-    width: 900px;
-    display:table;
-    clear:both;
+#PostArchive {
+    margin: 50px auto;
+    width: 60%;
 }
 
 .PostItem {
     background-color: black;
-    width: 900px;
-    height: 300px;
+    width: 90%;
     display: table;
     margin: 50px auto;
-    clear:both;
 }
 
 .PostCont {
-    width: 800px;
+    width: 90%;
     margin: auto auto;
-    clear:both;
 }
 
 .PostTitle {
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     color: rgb(77, 184, 233);
-    clear:both;
 }
 
 .tag-list-item {
@@ -149,10 +143,9 @@ body {
 }
 
 .ReadMoreButton {
-    left:0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto; 
+    display: block;
+    right: 0px;
+    text-align: right;
 }
 
 #Footer {
