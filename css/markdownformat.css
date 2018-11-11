@@ -1,0 +1,46 @@
+p,h3,h4,h5,h6,span,li {
+    color: rgb(182, 182, 182);
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: rgb(77, 184, 233);
+}
+
+h2 {
+    color: rgb(96, 96, 189);
+}
+
+strong {
+    color: #ff7f24;
+}
+
+figure {
+    background-color: darkgrey;
+}
+
+.line {
+    color: black;
+    font-family: consolas;
+}
+
+a:link {
+    color: #ff7f24;
+    text-decoration: none
+}
+a:visited {
+    color: #bde03b;
+    text-decoration: none
+}
+a:hover {
+    color: #ff7f24;
+    text-decoration: underline;
+}
+a:active {
+    color: #ff7f24;
+    text-decoration: underline;
+}
+
+blockquote {
+}

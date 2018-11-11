@@ -1,0 +1,181 @@
+body {
+    background-color: rgb(24, 24, 24);
+    width: 100%;
+    min-height: 100%;
+}
+
+#BackGround {
+    position: fixed;
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    margin: 0px 0px;
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+    height: 0px;
+}
+::-webkit-scrollbar-track-piece{
+    background: none;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:vertical{
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+    
+::-webkit-scrollbar-thumb:horizontal{
+    background-color: none;
+    border-radius: 4px;
+}
+
+#SideMenu {
+    background-color: rgb(40, 40, 73);
+    position: fixed;
+    z-index:100;
+    top: 60px;
+    left: 0px;
+    width: 300px;
+    height: 800px
+}
+
+#SideMenuButton {
+    background-color:rgb(48, 48, 133);
+    position: absolute;
+    border: none;
+    outline: none;
+    left: 10px;
+    top: 10px;
+    width:40px;
+    height: 40px;
+}
+
+#HeadMenu {
+    color: white;
+    z-index:100;
+    background-color:rgb(48, 48, 133);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 60px
+}
+
+#HeadTitle {
+    font-family: "Comic Sans MS",cursive,LiSu,sans-serif;
+    font-size: 30px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top:5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#HeadSculpture {
+    alt: "HeadSculpture";
+    width: 140px;
+    height: 140px;
+    position: relative;
+    left: 80px;
+    top: 20px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+#BackPic {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 300px;
+    height: 250px;
+}
+
+#SubNav {
+    position: absolute;
+    left:25px;
+    top:140px;
+    width:250px;
+}
+
+.SideMenuSubnav {
+    background-color: rgb(40, 40, 73);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    position: absolute;
+    text-decoration:none;
+    color:rgb(167, 167, 167);
+}
+
+#IndexArchive {
+    margin: 30px auto;
+    width: 900px;
+    display:table;
+    clear:both;
+}
+
+.PostItem {
+    background-color: black;
+    width: 900px;
+    height: 300px;
+    display: table;
+    margin: 50px auto;
+    clear:both;
+}
+
+.PostCont {
+    width: 800px;
+    margin: auto auto;
+    clear:both;
+}
+
+.PostTitle {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: rgb(77, 184, 233);
+    clear:both;
+}
+
+.tag-list-item {
+    margin: auto 5px;
+    display: block;
+    float:left;
+}
+
+.ReadMoreButton {
+    left:0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+#Footer {
+    position: absolute;
+    left:-2px;
+    background-color: black;
+    height:200px;
+    width:100%;
+}
+
+#cat {
+    width:180px;
+    width:180px;
+    position: absolute;
+    left: 50px;
+    bottom: 0px;
+}
+
+#foottip {
+    position:absolute;
+    left:250px;
+    top:20px;
+    font-size: 20px;
+    font-family: "Comic Sans MS",cursive,LiSu,sans-serif;
+    color: #858585;
+}

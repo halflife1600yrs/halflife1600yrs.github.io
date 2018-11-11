@@ -1,113 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-
-  
-  <title>FFT学习笔记 | Z131&#39;s Comfort Zone</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="快速计算两个多项式 $f(x)，g(x)$的乘积中$x$的各项系数使用类似于手动计算的各项相乘的方法时间复杂度是 $O(n^2)$，而使用 fft可以达到 $O(nlogn)$。  基础支撑1、点值表示由高等代数的知识可以知道，n个不同的点可以确定一个n次多项式，因此将f(x)和g(x)表示为: $$f(x)={(x_0,f(x_0))，(x_1,f(x_1))，\dots，(x_n,f(x_n">
-<meta name="keywords" content="algorithm">
-<meta property="og:type" content="article">
-<meta property="og:title" content="FFT学习笔记">
-<meta property="og:url" content="https://z131.xyz/2018/11/06/fft/index.html">
-<meta property="og:site_name" content="Z131&#39;s Comfort Zone">
-<meta property="og:description" content="快速计算两个多项式 $f(x)，g(x)$的乘积中$x$的各项系数使用类似于手动计算的各项相乘的方法时间复杂度是 $O(n^2)$，而使用 fft可以达到 $O(nlogn)$。  基础支撑1、点值表示由高等代数的知识可以知道，n个不同的点可以确定一个n次多项式，因此将f(x)和g(x)表示为: $$f(x)={(x_0,f(x_0))，(x_1,f(x_1))，\dots，(x_n,f(x_n">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-28T14:33:46.892Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FFT学习笔记">
-<meta name="twitter:description" content="快速计算两个多项式 $f(x)，g(x)$的乘积中$x$的各项系数使用类似于手动计算的各项相乘的方法时间复杂度是 $O(n^2)$，而使用 fft可以达到 $O(nlogn)$。  基础支撑1、点值表示由高等代数的知识可以知道，n个不同的点可以确定一个n次多项式，因此将f(x)和g(x)表示为: $$f(x)={(x_0,f(x_0))，(x_1,f(x_1))，\dots，(x_n,f(x_n">
-  
-    <link rel="alternate" href="/atom.xml" title="Z131&#39;s Comfort Zone" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    
+    <title>FFT学习笔记 | Z131&#39;s Comfort Zone</title>
+    <nav>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+</nav>
+    <link rel="stylesheet" href="/css/markdownformat.css">
+    <link rel="stylesheet" href="/css/theme.css">
+    <script src="/js/movement.js"></script>
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Z131&#39;s Comfort Zone</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Don&#39;t Panic.</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://z131.xyz"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-fft" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/06/fft/" class="article-date">
-  <time datetime="2018-11-06T15:04:26.788Z" itemprop="datePublished">2018-11-06</time>
-</a>
+	<body>
+		<div id="HeadMenu" class="Header">
+    <a id="HeadTitle" class="Header" onselectstart="return false;" href="https://z131.xyz" style="color: rgb(219, 219, 219);text-decoration:none">
+        Z131&#39;s Comfort Zone
+    </a>
+    <button id="SideMenuButton" class="Header" onclick="SidemenuToggle()">
+        <i class="fa fa-align-justify" style="font-size: 25px;color: rgb(219, 219, 219);"></i>
+    </button>
+</div>
+		<div id="SideMenu">
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-  </div>
+</div>
+		<br>
+		<br>
+		<div id="container">
+			<ul id="IndexArchive">
+    <li class="PostItem">
+        <div class="PostCont">
+            <br>
+            <a class="PostTitle" href="/2018/11/06/fft/" style="color: rgb(77, 184, 233);text-decoration:none">FFT学习笔记</a>
+<p class="PostTime">2018-11-06</p>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      FFT学习笔记
-    </h1>
-  
+  <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM/">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+<div style="clear:both"></div>
+<hr>
+
         <blockquote>
 <p>快速计算两个多项式 $f(x)，g(x)$的乘积中$x$的各项系数<br>使用类似于手动计算的各项相乘的方法时间复杂度是 $O(n^2)$，而使用 fft可以达到 $O(nlogn)$。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="基础支撑"><a href="#基础支撑" class="headerlink" title="基础支撑"></a>基础支撑</h2><h3 id="1、点值表示"><a href="#1、点值表示" class="headerlink" title="1、点值表示"></a>1、点值表示</h3><p>由高等代数的知识可以知道，n个不同的点可以确定一个n次多项式，因此将f(x)和g(x)表示为:</p>
-<p>$$<br>f(x)={(x_0,f(x_0))，(x_1,f(x_1))，\dots，(x_n,f(x_n))}<br>$$</p>
-<p>点值表示的一个优点:可以O(n)得到 f·g(x)（当然也是点值表示），所以我们首先计算出f(x)和g(x)在n个点的值，就可以快速计算出f·g(x)。</p>
+<script type="math/tex; mode=display">
+f(x)=\{(x_0,f(x_0))，(x_1,f(x_1))，\dots，(x_n,f(x_n))\}</script><p>点值表示的一个优点:可以O(n)得到 f·g(x)（当然也是点值表示），所以我们首先计算出f(x)和g(x)在n个点的值，就可以快速计算出f·g(x)。</p>
 <h3 id="2、分治"><a href="#2、分治" class="headerlink" title="2、分治"></a>2、分治</h3><p>将f(x)拆分奇偶项，表示为:</p>
-<p>$$<br>\begin{matrix}<br>f(x)=(a_0+a_2 x^2+a_4 x^4+…+a_{2n} x^2n )+(a_1 x+a_3 x^3+a_5 x^5+… +a_{2n+1} x^{2n+1})\<br>=(a_0+a_2 x^2+a_3 x^4+…+a_{2n} x^2n )+x·(a_1+a_3 x^2+a_5 x^4+… +a_{2n+1} x^2n)<br>\end{matrix}<br>$$</p>
-<p>即$f(x)=g(x^2)+x·h(x^2)$，这样就成功地二分了这个多项式，重复下去就可以递归地计算出f(x)在一个点的值。<br>但是呢这样能够处理的式子长度必须为$2^n$，所以我们需要把不足的位数补0。<br>另外，为了方便进行递归，我们需要对这个多项式的系数进行排序。假设原系数为</p>
-<p>$$<br>{a_0,a_1,a_2,a_3,a_4,a_5,a_6,a_7}<br>$$</p>
-<p>那么它在多次二分的过程中系数分别为</p>
-<p>$$<br>\begin{matrix}<br>{a_0,a_2,a_4,a_6},{a_1,a_3,a_5,a_7}\<br>{a_0,a_4},{a_2,a_6},{a_1,a_5},{a_3,a_7}<br>\end{matrix}<br>$$</p>
-<p>所以我们看到，将系数重新排为上述式子之后，我们可以直接在这个序列上方便地进行递归操作，而不需要多次复制奇数项和偶数项的系数。</p>
+<script type="math/tex; mode=display">
+\begin{matrix}
+f(x)=(a_0+a_2 x^2+a_4 x^4+…+a_{2n} x^2n )+(a_1 x+a_3 x^3+a_5 x^5+… +a_{2n+1} x^{2n+1})\\
+=(a_0+a_2 x^2+a_3 x^4+…+a_{2n} x^2n )+x·(a_1+a_3 x^2+a_5 x^4+… +a_{2n+1} x^2n)
+\end{matrix}</script><p>即$f(x)=g(x^2)+x·h(x^2)$，这样就成功地二分了这个多项式，重复下去就可以递归地计算出f(x)在一个点的值。<br>但是呢这样能够处理的式子长度必须为$2^n$，所以我们需要把不足的位数补0。<br>另外，为了方便进行递归，我们需要对这个多项式的系数进行排序。假设原系数为</p>
+<script type="math/tex; mode=display">
+{a_0,a_1,a_2,a_3,a_4,a_5,a_6,a_7}</script><p>那么它在多次二分的过程中系数分别为</p>
+<script type="math/tex; mode=display">
+\begin{matrix}
+\{a_0,a_2,a_4,a_6\},\{a_1,a_3,a_5,a_7\}\\
+\{a_0,a_4\},\{a_2,a_6\},\{a_1,a_5\},\{a_3,a_7\}
+\end{matrix}</script><p>所以我们看到，将系数重新排为上述式子之后，我们可以直接在这个序列上方便地进行递归操作，而不需要多次复制奇数项和偶数项的系数。</p>
 <blockquote>
 <p><strong>精髓1：一个有趣的结论就是一个数二分后的位置(从0开始)正好为二分前二进制表示的翻转，比如$6=(110)_2$，它翻转后的数为$(011)_2=3$</strong><br>这个结论也十分容易证明。第一次二分时偶数在前一半，奇数在后一半，也就是末&gt;位为1的在后，为0的在前；第二次二分，仅考虑前一半的范围，排序为偶数的在前&gt;一半，即x/2(也就是x&gt;&gt;1)为偶数的在前一半，相当于看倒数第二位。以此类推，&gt;最终就相当于对每个数的二进制翻转。</p>
 </blockquote>
@@ -115,145 +69,69 @@
 <p>好，现在我们得到了一个分治方法，但是如果对每个x_i 值都这样进行分治，复杂度对于每一个$x_i$来说都是$f(start,end)=f(start,mid)+f(mid,end)$，也就是$f(n)=2f(n/2)$，还是$O(n)$。<strong>所以问题的复杂度到现在为止并没有下降反而是加大了运算的常数？？</strong><br>没有关系，既然我们已经得到了分治的方法，那么我们就有希望在这个递归过程中加入适当的操作，使得计算方法由n次循环、每次O(n)，转变为一次求得F在所有$x_i$的对应值，并使得其复杂度为：$f(start,end)=f(start,mid)+f(mid,end)+n$，也就是$O(n·log_2⁡(n))$。</p>
 <h3 id="3、单位复根的引入"><a href="#3、单位复根的引入" class="headerlink" title="3、单位复根的引入"></a>3、单位复根的引入</h3><p>为了能够一次性地计算出$f(x)$在$x=x_{[0,…,n−1]}$的值，我们显然不能随意地对$x_{[0,…,n−1]}$取值，有一个思路就是恰当地取它们的值，使得它们的k次方能够尽可能多地产生重复，使得我们可以方便地通过已计算出的值推出其他位置的值  </p>
 <blockquote>
-<p>精髓2：引进单位复根<br>一个中学的重要定理：一元n次多项式的复根个数必定为n。那么$x^n=1$的解显然也有n个，我们把这些解称为为n次单位复根，而它们就是我们想要取为x的值。<br>如何计算1的n次根？<br>由复数的欧拉公式：<br>$$e^iπ=cosθ+isinθ$$<br>我们有$1=e^2πi$，因此n次单位根就是$e^{(2πi/n∗{[0,…,n−1]})}$，即n个矢量端点均匀分布在复数坐标系以原点为圆心的单位圆上的矢量</p>
+<p>精髓2：引进单位复根<br>一个中学的重要定理：一元n次多项式的复根个数必定为n。那么$x^n=1$的解显然也有n个，我们把这些解称为为n次单位复根，而它们就是我们想要取为x的值。<br>如何计算1的n次根？<br>由复数的欧拉公式：</p>
+<script type="math/tex; mode=display">e^iπ=cosθ+isinθ</script><p>我们有$1=e^2πi$，因此n次单位根就是$e^{(2πi/n∗{[0,…,n−1]})}$，即n个矢量端点均匀分布在复数坐标系以原点为圆心的单位圆上的矢量</p>
 </blockquote>
 <p>我们将从1开始逆时针数第一个复根记为$ω_n=e^{2πi/n}$，那么所有的x值即为$1,ω_n^1,…,ω_n^{n−1}$</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">使用数据结构来表示复数：</span><br><span class="line">typedef struct Complex&#123;</span><br><span class="line">    double x,y;</span><br><span class="line">        void set_angle(double angle)&#123;x=cos(angle),y=sin(angle);&#125;</span><br><span class="line">    Complex(double _x = 0.0,double _y = 0.0)&#123;</span><br><span class="line">        x = _x;</span><br><span class="line">    y = _y;</span><br><span class="line">    &#125;</span><br><span class="line">    Complex operator-(const Complex &amp;b)const&#123;</span><br><span class="line">    return Complex(x - b.x,y - b.y);</span><br><span class="line">    &#125;</span><br><span class="line">    Complex operator+(const Complex &amp;b)const&#123;</span><br><span class="line">    return Complex(x + b.x,y + b.y);</span><br><span class="line">    &#125;</span><br><span class="line">    Complex operator*(const Complex &amp;b)const&#123;</span><br><span class="line">    return Complex(x*b.x - y*b.y,x*b.y + y*b.x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;Complex;</span><br></pre></td></tr></table></figure>
 <h2 id="DFT-转换为点值表示"><a href="#DFT-转换为点值表示" class="headerlink" title="DFT(转换为点值表示)"></a>DFT(转换为点值表示)</h2><p>那么我们怎么通过单位根优化递归呢？<br>再次考虑这个七次多项式，其重排后的系数为</p>
-<p>$$<br>{a_0,a_4},{a_2,a_6},{a_1,a_5},{a_3,a_7}<br>$$</p>
-<p>所以在递归的最底层，我们需要计算的是$a_0+a_4 x^4,a_2+a_6 x^4,a_1+a_5 x^4,a_3+a_7 x^4$，将$ω_7^{[1…6]}$分别代入可以发现$x^4$只有两种即$ω_7^4$和1，即这四个式子各有两种值(根据之前的欧拉公式，$\omega_n^k=\omega_n^{k\%n}$)<br>同理地，从递归底层向上一层，需要计算的是$(a_0+a_4 x^4)+x^2 (a_2+a_6 x^4)$,$(a_1+a_5 x^4 )+x^2 (a_3+a_7 x^4)$，将x值代入后发现有四种值。<br>那么到这里就可以发现了，在递归的合并过程中，式子的数量和所有可能的值数量相乘为n+1（在n+1恰好为2的幂情况下，不足则补0），而DFT的过程就可以视为将2^k 个可能值有1种的式子合并为1个可能值有$2^k$种的式子。</p>
+<script type="math/tex; mode=display">
+\{a_0,a_4\},\{a_2,a_6\},\{a_1,a_5\},\{a_3,a_7\}</script><p>所以在递归的最底层，我们需要计算的是$a_0+a_4 x^4,a_2+a_6 x^4,a_1+a_5 x^4,a_3+a_7 x^4$，将$ω_7^{[1…6]}$分别代入可以发现$x^4$只有两种即$ω_7^4$和1，即这四个式子各有两种值(根据之前的欧拉公式，$\omega_n^k=\omega_n^{k\%n}$)<br>同理地，从递归底层向上一层，需要计算的是$(a_0+a_4 x^4)+x^2 (a_2+a_6 x^4)$,$(a_1+a_5 x^4 )+x^2 (a_3+a_7 x^4)$，将x值代入后发现有四种值。<br>那么到这里就可以发现了，在递归的合并过程中，式子的数量和所有可能的值数量相乘为n+1（在n+1恰好为2的幂情况下，不足则补0），而DFT的过程就可以视为将2^k 个可能值有1种的式子合并为1个可能值有$2^k$种的式子。</p>
 <h2 id="IDFT-转换为系数表示"><a href="#IDFT-转换为系数表示" class="headerlink" title="IDFT(转换为系数表示)"></a>IDFT(转换为系数表示)</h2><p>经过上面的计算，我们得到了$f·g(x_{[0…n-1]})$，但是我们还要把它们转换为系数表示<br>事实上，DFT的过程可以表示为以下的过程</p>
-<p>$$<br>\begin{bmatrix}<br>y_0\y_1\y_2\\dots\y_n<br>\end{bmatrix}<br>=<br>\begin{bmatrix}<br>1&amp;1&amp;1&amp;\dots&amp;1\<br>1&amp;\omega_n^1&amp;\omega_n^2&amp;…&amp;\omega_n^2\<br>1&amp;\omega_n^2&amp;\omega_n^4&amp;…&amp;\omega_n^{2n}\<br>…&amp;…&amp;…&amp;…&amp;…\<br>1&amp;\omega_n^n&amp;\omega_n^{2n}&amp;…&amp;\omega_n^{n^2}<br>\end{bmatrix}<br>·<br>\begin{bmatrix}<br>x_0\x_1\x_2\…\x_n<br>\end{bmatrix}<br>$$</p>
-<p>左右同乘中间的大矩阵的逆之后就可以得到$a_{[0,1,…,n]}$  </p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+y_0\\y_1\\y_2\\\dots\\y_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+1&1&1&\dots&1\\
+1&\omega_n^1&\omega_n^2&...&\omega_n^2\\
+1&\omega_n^2&\omega_n^4&...&\omega_n^{2n}\\
+...&...&...&...&...\\
+1&\omega_n^n&\omega_n^{2n}&...&\omega_n^{n^2}
+\end{bmatrix}
+·
+\begin{bmatrix}
+x_0\\x_1\\x_2\\...\\x_n
+\end{bmatrix}</script><p>左右同乘中间的大矩阵的逆之后就可以得到$a_{[0,1,…,n]}$  </p>
 <blockquote>
-<p>精髓3：根据结论，该矩阵的逆就等于各项取反再除n，即<br>$$<br>\begin{bmatrix}<br>\frac{1}{n}&amp;\frac{1}{n}&amp;\frac{1}{n}&amp;…&amp;\frac{1}{n}\<br>\frac{1}{n}&amp;\frac{1}{n·\omega_n^1}&amp;\frac{1}{n·\omega_n^2}&amp;…&amp;\frac{1}{n·\omega_n^n}\<br>\frac{1}{n}&amp;\frac{2}{n·\omega_n^2}&amp;\frac{1}{n·\omega_n^4}&amp;…&amp;\frac{1}{n·\omega_n^{2n}}\<br>…&amp;…&amp;…&amp;…&amp;…\<br>\frac{1}{n}&amp;\frac{1}{n·\omega_n^n}&amp;\frac{1}{n·\omega_n^{2n}}&amp;…&amp;\frac{1}{n·\omega_n^{n^2}}<br>\end{bmatrix}<br>$$</p>
-</blockquote>
+<p>精髓3：根据结论，该矩阵的逆就等于各项取反再除n，即</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+\frac{1}{n}&\frac{1}{n}&\frac{1}{n}&...&\frac{1}{n}\\
+\frac{1}{n}&\frac{1}{n·\omega_n^1}&\frac{1}{n·\omega_n^2}&...&\frac{1}{n·\omega_n^n}\\
+\frac{1}{n}&\frac{2}{n·\omega_n^2}&\frac{1}{n·\omega_n^4}&...&\frac{1}{n·\omega_n^{2n}}\\
+...&...&...&...&...\\
+\frac{1}{n}&\frac{1}{n·\omega_n^n}&\frac{1}{n·\omega_n^{2n}}&...&\frac{1}{n·\omega_n^{n^2}}
+\end{bmatrix}</script></blockquote>
 <p>而显然这里可以使用和DFT相同的计算方法，只要对$ω_n$取逆（也就是将其角度设为-$θ$ )，然后将计算结果各项除以n即可</p>
 
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://z131.xyz/2018/11/06/fft/" data-id="cjo5v8mk50005ks7r6oi7qfkz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2018/11/06/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/11/06/fft/">FFT学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/06/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/23/test/">这是一个测试！</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 Z131_<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
+<br>
+        </div>
+    </li>
+</ul>
+		</div>
+		<br>
+		<div id="Footer" onselectstart="return false;">
+    <img src="/img/guoguo.png" id="cat" onselectstart="return false;">
+    <p id="foottip" onselectstart="return false;">Made by Z131 with love</p>
+    <p style="position:absolute;right:10px;bottom:10px" onselectstart="return false;">Powered by Hexo</p>
+</div>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
