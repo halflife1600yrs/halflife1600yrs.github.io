@@ -17,7 +17,7 @@
 </head>
 	<body>
 		<div id="HeadMenu" class="Header">
-    <a id="HeadTitle" class="Header" onselectstart="return false;" href="https://z131.xyz" style="color: rgb(219, 219, 219);text-decoration:none">
+    <a id="HeadTitle" class="Header" onselectstart="return false;" href="https://z131.xyz">
         Z131&#39;s Comfort Zone
     </a>
     <button id="SideMenuButton" class="Header" onclick="SidemenuToggle()">
@@ -25,19 +25,43 @@
     </button>
 </div>
 		<div id="SideMenu">
-    
+    <img src="/img/backpic.jpg" id="BackPic" class="Side">
+    <img src="/img/morty.png" id="Mask" class="Side">
+    <div class="Side" id="ID">
+        <a style="color:white;text-decoration: none">Z131</a>
+    </div>
+    <br><br>
+    <div class="Side">
+        <ul id="SideNav">
+            
+                <li class="SidenavMenu">
+                    <a href="/archive/" class="SideHref">文章目录</a>
+                </li>
+            
+                <li class="SidenavMenu">
+                    <a href="/tags/" class="SideHref">标签</a>
+                </li>
+            
+                <li class="SidenavMenu">
+                    <a href="/categories/" class="SideHref">归档</a>
+                </li>
+            
+        </ul>
+    </div>
 </div>
 		<br>
 		<br>
-		<div id="container">
+		<div class="container">
 			
 		</div>
 		<br><br>
-		<div id="Footer" onselectstart="return false;">
-    <img src="/img/guoguo.png" id="cat" onselectstart="return false;">
-    <p id="foottip" onselectstart="return false;">Made by Z131 with love</p>
-    <p style="position:absolute;right:10px;bottom:10px" onselectstart="return false;">Powered by Hexo</p>
-</div>
+		<div style="position:relative;width:100%;background-color:black">
+			<div id="foter">
+				<img src="/img/guoguo.png" id="cat" onselectstart="return false;">
+<p id="foottip" onselectstart="return false;">Made by Z131 with full heart</p>
+<p style="position:absolute;right:10px;bottom:10px;font-size:10px" onselectstart="return false;">Powered by Hexo</p>
+			</div>	
+		</div>
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

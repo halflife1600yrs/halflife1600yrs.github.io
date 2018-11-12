@@ -6,5 +6,5 @@ $(document).ready(function () {
 })
 
 function SidemenuToggle() { 
-    $("#SideMenu").animate({ width: "toggle" }, "slow");
+    $("#SideMenu").animate({ width: "toggle" }, "fast");
 }

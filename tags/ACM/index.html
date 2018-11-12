@@ -17,7 +17,7 @@
 </head>
 	<body>
 		<div id="HeadMenu" class="Header">
-    <a id="HeadTitle" class="Header" onselectstart="return false;" href="https://z131.xyz" style="color: rgb(219, 219, 219);text-decoration:none">
+    <a id="HeadTitle" class="Header" onselectstart="return false;" href="https://z131.xyz">
         Z131&#39;s Comfort Zone
     </a>
     <button id="SideMenuButton" class="Header" onclick="SidemenuToggle()">
@@ -25,19 +25,41 @@
     </button>
 </div>
 		<div id="SideMenu">
-    
+    <img src="/img/backpic.jpg" id="BackPic" class="Side">
+    <img src="/img/morty.png" id="Mask" class="Side">
+    <div class="Side" id="ID">
+        <a style="color:white;text-decoration: none">Z131</a>
+    </div>
+    <br><br>
+    <div class="Side">
+        <ul id="SideNav">
+            
+                <li class="SidenavMenu">
+                    <a href="/archive/" class="SideHref">文章目录</a>
+                </li>
+            
+                <li class="SidenavMenu">
+                    <a href="/tags/" class="SideHref">标签</a>
+                </li>
+            
+                <li class="SidenavMenu">
+                    <a href="/categories/" class="SideHref">归档</a>
+                </li>
+            
+        </ul>
+    </div>
 </div>
 		<br>
 		<br>
-		<div id="container">
+		<div class="container">
 			<section>
     <ul id="PostArchive">
         
             <li class="PostItem">
                 <div class="PostCont">
                     <br>
-                    <a class="PostTitle" href="/2018/11/06/fft/" style="color: rgb(77, 184, 233);text-decoration:none">FFT学习笔记</a>
-<p class="PostTime">2018-11-11</p>
+                    <a class="PostTitle" href="/2018/11/06/fft/">FFT学习笔记</a>
+<p class="PostTime">2018-11-12</p>
 
   	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM/">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
 
@@ -62,11 +84,13 @@
 </section>
 		</div>
 		<br><br>
-		<div id="Footer" onselectstart="return false;">
-    <img src="/img/guoguo.png" id="cat" onselectstart="return false;">
-    <p id="foottip" onselectstart="return false;">Made by Z131 with love</p>
-    <p style="position:absolute;right:10px;bottom:10px" onselectstart="return false;">Powered by Hexo</p>
-</div>
+		<div style="position:relative;width:100%;background-color:black">
+			<div id="foter">
+				<img src="/img/guoguo.png" id="cat" onselectstart="return false;">
+<p id="foottip" onselectstart="return false;">Made by Z131 with full heart</p>
+<p style="position:absolute;right:10px;bottom:10px;font-size:10px" onselectstart="return false;">Powered by Hexo</p>
+			</div>	
+		</div>
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

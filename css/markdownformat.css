@@ -2,6 +2,10 @@ p,h3,h4,h5,h6,span,li {
     color: rgb(182, 182, 182);
 }
 
+p {
+    text-indent: 20px;
+}
+
 h1 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
@@ -25,19 +29,19 @@ figure {
     font-family: consolas;
 }
 
-a:link {
+.container a:link {
     color: #ff7f24;
     text-decoration: none
 }
-a:visited {
+.container a:visited {
     color: #bde03b;
     text-decoration: none
 }
-a:hover {
+.container a:hover {
     color: #ff7f24;
     text-decoration: underline;
 }
-a:active {
+.container a:active {
     color: #ff7f24;
     text-decoration: underline;
 }
