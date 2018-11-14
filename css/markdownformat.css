@@ -1,12 +1,12 @@
-p,h3,h4,h5,h6,span,li {
+.PostContent p,h3,h4,h5,h6,span,li {
     color: rgb(182, 182, 182);
 }
 
-p {
+.PostContent p {
     text-indent: 20px;
 }
 
-h1 {
+.PostContent h1 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     color: rgb(77, 184, 233);
@@ -16,17 +16,35 @@ h2 {
     color: rgb(96, 96, 189);
 }
 
-strong {
+.PostContent strong {
     color: #ff7f24;
 }
 
-figure {
+.PostContent figure {
     background-color: darkgrey;
 }
 
-.line {
+.PostContent .gutter .line {
+    font-family: consolas;
+    color: darkgrey;
+}
+
+.PostContent .gutter {
+    border-style: solid;
+    border-width: 0px 5px 0px 5px;
+    border-color: rgb(24, 24, 24);
+    text-align: right;
+    background-color: rgb(24, 24, 24);
+}
+
+.PostContent .code .line {
+    padding: 0px 0px 0px 10px;
     color: black;
     font-family: consolas;
+}
+
+.PostContent .code {
+    background-color: darkgray;
 }
 
 .PostContent a:link {
@@ -46,5 +64,9 @@ figure {
     text-decoration: underline;
 }
 
-blockquote {
+.PostContent blockquote {
+    border-style: solid;
+    border-width: 0px 0px 0px 5px;
+    padding: 0px 0px 0px 10px;
+    border-color: rgb(77, 184, 233);
 }

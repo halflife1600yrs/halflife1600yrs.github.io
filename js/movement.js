@@ -1,10 +1,11 @@
 $(document).ready(function () {
     $("#SideMenu").hide();
-    var footer = document.getElementById("Footer");
-    if (footer.offsetTop < 700) 
-    footer.style.top = "700px";
+    var footer = document.getElementById("Foot");
+    if (footer.offsetTop < 700) {
+        footer.style.top = 700 - footer.offsetTop + "px";
+    }
 })
 
-function SidemenuToggle() { 
+function SidemenuToggle() {
     $("#SideMenu").animate({ width: "toggle" }, "fast");
 }

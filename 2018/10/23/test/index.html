@@ -25,7 +25,7 @@
     </button>
 </div>
 		<div id="SideMenu">
-    <img src="/img/backpic.jpg" id="BackPic" class="Side">
+    <img src="/img/backpic.jpg" id="SidePic" class="Side">
     <img src="/img/morty.png" id="Mask" class="Side">
     <div class="Side" id="ID">
         <a style="color:white;text-decoration: none">Z131</a>
@@ -53,17 +53,20 @@
 		<br>
 		<div class="container">
 			<section>
-<ul id="PostArchive">
-    <li class="PostItem">
-        <div class="PostHere">
-            <br>
-            <a class="PostTitle" href="/2018/10/23/test/">这是一个测试！</a>
-<p class="PostTime">2018-10-23</p>
-<div class="PostContent">
+    <ul id="PostArchive">
+        <li class="PostTime">
+            <p>2018-10-23</p>
+        </li>
+        <li class="PostItem">
+            <div class="PostHere">
+                <br>
+                
+<a class="PostTitle" href="/2018/10/23/test/">这是一个测试！</a>
 
 <div style="clear:both"></div>
-<hr>
+<hr class="TitleLine">
 
+    <div class="PostContent">
         <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><h2 id="使用-空格作为标题！"><a href="#使用-空格作为标题！" class="headerlink" title="使用#+空格作为标题！"></a>使用#+空格作为标题！</h2><h3 id="支持多级标题"><a href="#支持多级标题" class="headerlink" title="支持多级标题"></a>支持多级标题</h3><h6 id="最多可以有六级标题"><a href="#最多可以有六级标题" class="headerlink" title="最多可以有六级标题"></a>最多可以有六级标题</h6><h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>换行-行末两个空格表示换行<br>像这样</p>
 <p>空一行表示新一节(块),上面的和此行是不同的两块</p>
 <h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>区块引用:</p>
@@ -167,20 +170,31 @@
 <hr>
 <p>这样的话日常写博客应该就够啦!</p>
 
+    </div>
 
-</div>
 <br>
-        </div>
-    </li>
-</ul>
+            </div>
+        </li>
+    </ul>
 </section>
+<ul id="SecondArchive">
+    <br>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1"><span class="toc-number">1.</span> <span class="toc-text">1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-空格作为标题！"><span class="toc-number">2.</span> <span class="toc-text">使用#+空格作为标题！</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#支持多级标题"><span class="toc-number">2.1.</span> <span class="toc-text">支持多级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#最多可以有六级标题"><span class="toc-number">2.1.0.0.1.</span> <span class="toc-text">最多可以有六级标题</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#2"><span class="toc-number">3.</span> <span class="toc-text">2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3"><span class="toc-number">4.</span> <span class="toc-text">3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4"><span class="toc-number">5.</span> <span class="toc-text">4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5"><span class="toc-number">6.</span> <span class="toc-text">5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6"><span class="toc-number">7.</span> <span class="toc-text">6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7"><span class="toc-number">8.</span> <span class="toc-text">7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8"><span class="toc-number">9.</span> <span class="toc-text">8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9"><span class="toc-number">10.</span> <span class="toc-text">9</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#再试一下Mathjax吧"><span class="toc-number">11.</span> <span class="toc-text">再试一下Mathjax吧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1"><span class="toc-number">12.</span> <span class="toc-text">1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1"><span class="toc-number">13.</span> <span class="toc-text">2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1"><span class="toc-number">14.</span> <span class="toc-text">3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1"><span class="toc-number">15.</span> <span class="toc-text">4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵"><span class="toc-number">15.1.</span> <span class="toc-text">矩阵</span></a></li></ol></li>
+</ul>
 		</div>
 		<br><br>
-		<div style="position:relative;width:100%;background-color:black">
+		<div id="Foot">
 			<div id="foter">
 				<img src="/img/guoguo.png" id="cat" onselectstart="return false;">
-<p id="foottip" onselectstart="return false;">Made by Z131 with full heart</p>
-<p style="position:absolute;right:10px;bottom:10px;font-size:10px" onselectstart="return false;">Powered by Hexo</p>
+<p class="FootTip" id="MadeBy" onselectstart="return false;">Made by Z131 with full heart</p>
+<p class="FootTip" id="Hexo">Powered by Hexo</p>
+<div class="FootTip" id="MainFoot">
+    <p class="FootTip" id="CopyRight">
+        CopyRight © 2018-2019 Z131 All rights reserved. | 
+        <a>Vgray Theme</a>
+         | BackPic by @waqar-unsplash
+    </p>
+</div>
 			</div>	
 		</div>
 	<script type="text/x-mathjax-config">

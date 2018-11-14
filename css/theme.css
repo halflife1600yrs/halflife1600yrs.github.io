@@ -58,10 +58,11 @@ body {
     z-index:80;
     background-color:black;
     position: fixed;
-    border-bottom: 100px;
-    border-bottom-color: #ffffff;
     top: 0px;
     left: 0px;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: rgb(61, 61, 61);
     width: 100%;
     height: 60px
 }
@@ -72,9 +73,7 @@ body {
     position: fixed;
     left: 0;
     right: 0;
-    top:10px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 10px auto;
     text-align: center;
     color: rgb(219, 219, 219);
     text-decoration:none
@@ -97,7 +96,7 @@ body {
     overflow: hidden;
 }
 
-#BackPic {
+#SidePic {
     z-index: 50;
     width: 100%;
     height: 100%;
@@ -137,20 +136,34 @@ body {
 }
 
 #PostArchive {
+    z-index: 50;
+    position: relative;
     margin: 50px auto;
-    width: 1000px;
+    left: -120px;
+    width: 800px;
 }
 
 .PostItem {
     background-color: black;
-    width: 1000px;
+    width: 100%;
     display: table;
-    margin: 50px auto;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .PostHere {
-    width: 800px;
+    width: 85%;
     margin: auto auto;
+}
+
+.PostTime {
+    width: 100%;
+    display: table;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-indent: 20px;
 }
 
 .PostTitle {
@@ -160,16 +173,66 @@ body {
     text-decoration: none
 }
 
+.TitleLine {
+    height: 0px;
+    border-style: dashed;
+    border-width: 1px 0px 0px 0px;
+}
+
+.tag-list {
+    padding: 10px;
+}
+
 .tag-list-item {
+    padding: 0px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dbff0d;
+    border-radius: 6px;
     margin: auto 5px;
     display: block;
     float:left;
+}
+.tag-list-item a {
+    line-height: 12px;
+    font-size: 12px;
+    color: #ff7f24;
+    text-decoration: none;
 }
 
 .ReadMoreButton {
     display: block;
     right: 0px;
     text-align: right;
+}
+
+#SecondArchive {
+    padding: 5px 20px 20px 5px;
+    position: fixed;
+    width: 270px;
+    background-color: black;
+    top: 137px;
+    right: 110px;
+}
+
+.toc {
+    color: black;
+}
+
+.toc li{
+    margin-bottom: 8px;
+    color: black;
+    padding: 0px;
+}
+
+.toc-link {
+    text-decoration: none;
+}
+
+#Foot {
+    position:relative;
+    width:100%;
+    background-color:black
 }
 
 #foter {
@@ -188,12 +251,34 @@ body {
     bottom: 0px;
 }
 
-#foottip {
-    position:absolute;
-    z-index: 120;
-    left:175px;
-    top:30px;
+.FootTip {
+    z-index: 150;
     font-size: 15px;
     font-family: "Comic Sans MS",cursive,LiSu,sans-serif;
     color: #858585;
+}
+
+#MadeBy {
+    position:absolute;
+    left: 150px;
+    top: 30px;
+}
+
+#Hexo {
+    position:absolute;
+    right: 10px;
+    bottom: 0px;
+}
+
+#MainFoot {
+    position: absolute;
+    top:60px;
+    width: 60%;
+    height: 50px;
+    left: 20%;
+    text-align: center
+}
+
+#CopyRight {
+    font-size: 10px;
 }
