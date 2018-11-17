@@ -70,3 +70,10 @@ h2 {
     padding: 0px 0px 0px 10px;
     border-color: rgb(77, 184, 233);
 }
+
+.PostContent hr {
+    height: 0px;
+    border-style: solid;
+    border-width: 1px 0px 0px 0px;
+    width: 80%
+}

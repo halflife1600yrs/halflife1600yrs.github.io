@@ -16,6 +16,14 @@ body {
     margin: 0px 0px;
 }
 
+.clear {
+    clear: both;
+    width: 0px;
+    height: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
 ::-webkit-scrollbar{
     width: 8px;
     height: 0px;
@@ -135,10 +143,12 @@ body {
     text-decoration:none
 }
 
-#PostArchive {
+#MainArchive {
     z-index: 50;
-    position: relative;
-    margin: 50px auto;
+    float: left;
+    margin-top: 30px;
+    margin-left: 200px;
+    margin-right: 50px;
     left: -120px;
     width: 800px;
 }
@@ -150,6 +160,10 @@ body {
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#Paginator {
+    text-align: center;
 }
 
 .PostHere {
@@ -179,25 +193,50 @@ body {
     border-width: 1px 0px 0px 0px;
 }
 
-.tag-list {
+.category-list,.tag-list {
     padding: 10px;
 }
 
-.tag-list-item {
+.category-list-item,.tag-list-item {
     padding: 0px 3px 3px 3px;
     border-style: solid;
     border-width: 1px;
-    border-color: #dbff0d;
+    border-color: whitesmoke;
     border-radius: 6px;
-    margin: auto 5px;
+    margin: 0px 5px 8px 5px;
     display: block;
     float:left;
 }
-.tag-list-item a {
+.category-list-link,.tag-list-link {
     line-height: 12px;
     font-size: 12px;
-    color: #ff7f24;
+    color: whitesmoke;
     text-decoration: none;
+}
+.category-list-count,.tag-list-count {
+    font-size: 12px;
+    color: #ff7f24;
+}
+
+.page-number,.extend {
+    font-size: 12px;
+    padding: 1px 3px 1px 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: whitesmoke;
+    display: inline-block;
+    color: whitesmoke;
+    text-decoration: none;
+    margin: 20px 10px;
+}
+
+.current {
+    border-width: 0px;
+}
+
+.PostEnd {
+    display: block;
+    margin: 0px auto;
 }
 
 .ReadMoreButton {
@@ -206,14 +245,66 @@ body {
     text-align: right;
 }
 
-#SecondArchive {
-    padding: 5px 20px 20px 5px;
-    position: fixed;
-    width: 270px;
-    background-color: black;
-    top: 137px;
-    right: 110px;
+.SecondArchive {
+    padding: 0px;
+    float: left;
+    margin-top: 100px;
+    width: 250px;
 }
+
+#ArticleInfor {
+    padding: 0px;
+    float: left;
+    width: 250px;
+}
+
+.SecondItem {
+    padding: 10px 20px 20px 20px;
+    display: table;
+    width: 100%;
+    margin: 10px auto;
+    background-color: black;
+}
+
+.WorkNote {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.WorkNote-4,.WorkNote-0,.WorkNote-1,.WorkNote-2,.WorkNote-3 {
+    height: 8px;
+    width: 8px;
+    margin: 2px;
+    float: left;
+}
+
+.WorkNote-0 {
+    background-color: #858585;
+}
+
+.WorkNote-1 {
+    background-color: aquamarine;
+}
+
+.WorkNote-2 {
+    background-color: aqua;
+}
+
+.WorkNote-3 {
+    background-color: rgb(60, 73, 255);
+}
+
+.WorkNote-4 {
+    background-color: black;
+}
+
+.WeekDay {
+    margin-right: 17px;
+    float: left;
+    font-size: 8px;
+    line-height: 8px;
+}
+
 
 .toc {
     color: black;
@@ -232,7 +323,8 @@ body {
 #Foot {
     position:relative;
     width:100%;
-    background-color:black
+    background-color:black;
+    padding: 0px;
 }
 
 #foter {
