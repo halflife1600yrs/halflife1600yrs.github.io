@@ -1,12 +1,12 @@
-.PostContent p,h3,h4,h5,h6,span,li {
+  p,h3,h4,h5,h6,span,li {
     color: rgb(182, 182, 182);
 }
 
-.PostContent p {
+  p {
     text-indent: 20px;
 }
 
-.PostContent h1,.PostTitle {
+  h1,.PostTitle {
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     color: rgb(52, 141, 224);
@@ -17,20 +17,20 @@ h2 {
     color: rgb(72, 143, 148);
 }
 
-.PostContent strong {
+  strong {
     color: #ff7f24;
 }
 
-.PostContent figure {
+  figure {
     background-color: darkgrey;
 }
 
-.PostContent .gutter .line {
+  .gutter .line {
     font-family: consolas;
     color: darkgrey;
 }
 
-.PostContent .gutter {
+  .gutter {
     border-style: solid;
     border-width: 0px 5px 0px 5px;
     border-color: rgb(24, 24, 24);
@@ -38,41 +38,41 @@ h2 {
     background-color: rgb(24, 24, 24);
 }
 
-.PostContent .code .line {
+  .code .line {
     padding: 0px 0px 0px 10px;
     color: black;
     font-family: consolas;
 }
 
-.PostContent .code {
+  .code {
     background-color: darkgray;
 }
 
-.PostContent a:link {
+  a:link {
     color: #ff7f24;
     text-decoration: none
 }
-.PostContent a:visited {
+  a:visited {
     color: #bde03b;
     text-decoration: none
 }
-.PostContent a:hover {
+  a:hover {
     color: #ff7f24;
     text-decoration: underline;
 }
-.PostContent a:active {
+  a:active {
     color: #ff7f24;
     text-decoration: underline;
 }
 
-.PostContent blockquote {
+  blockquote {
     border-style: solid;
     border-width: 0px 0px 0px 5px;
     padding: 0px 0px 0px 10px;
     border-color: rgb(77, 184, 233);
 }
 
-.PostContent hr {
+  hr {
     height: 0px;
     border-style: solid;
     border-width: 1px 0px 0px 0px;

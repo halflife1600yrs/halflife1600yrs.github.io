@@ -24,24 +24,6 @@ body {
     margin: 0px;
 }
 
-::-webkit-scrollbar{
-    width: 8px;
-    height: 0px;
-}
-::-webkit-scrollbar-track-piece{
-    background: none;
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:vertical{
-    background-color: #ffffff;
-    border-radius: 4px;
-}
-    
-::-webkit-scrollbar-thumb:horizontal{
-    background-color: none;
-    border-radius: 4px;
-}
-
 #SideMenu {
     position: fixed;
     top: 59px;
@@ -180,42 +162,10 @@ body {
     text-indent: 20px;
 }
 
-.PostTitle {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
-    color: rgb(77, 184, 233);
-    text-decoration: none
-}
-
 .TitleLine {
     height: 0px;
     border-style: dashed;
     border-width: 1px 0px 0px 0px;
-}
-
-.category-list,.tag-list {
-    padding: 10px;
-}
-
-.category-list-item,.tag-list-item {
-    padding: 0px 3px 3px 3px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: whitesmoke;
-    border-radius: 6px;
-    margin: 0px 5px 8px 5px;
-    display: block;
-    float:left;
-}
-.category-list-link,.tag-list-link {
-    line-height: 12px;
-    font-size: 12px;
-    color: whitesmoke;
-    text-decoration: none;
-}
-.category-list-count,.tag-list-count {
-    font-size: 12px;
-    color: #ff7f24;
 }
 
 .page-number,.extend {
@@ -305,21 +255,6 @@ body {
     line-height: 8px;
 }
 
-
-.toc {
-    color: black;
-}
-
-.toc li{
-    margin-bottom: 8px;
-    color: black;
-    padding: 0px;
-}
-
-.toc-link {
-    text-decoration: none;
-}
-
 #Foot {
     position:relative;
     width:100%;
@@ -327,7 +262,7 @@ body {
     padding: 0px;
 }
 
-#foter {
+#footer {
     background-color: black;
     position: absolute;
     left: -10px;
@@ -364,7 +299,7 @@ body {
 
 #MainFoot {
     position: absolute;
-    top:60px;
+    bottom: 10px;
     width: 60%;
     height: 50px;
     left: 20%;
