@@ -20,56 +20,61 @@
 </nav>
 </head>
 	<body>
-		<div id="HeadMenu" class="Header">
-    <a id="HeadTitle" class="Header" onselectstart="return false;" href="/">
+		<div id="head-menu">
+    <a id="title" onselectstart="return false;" href="/">
         Z131&#39;s Comfort Zone
     </a>
-    <button id="SideMenuButton" class="Header" onclick="SidemenuToggle()">
+    <button id="menu-bottom" onclick="SidemenuToggle()">
         <i class="fa fa-align-justify" style="font-size: 25px;color: rgb(219, 219, 219);"></i>
     </button>
 </div>
-		<div id="SideMenu">
-    <img src="/img/waqar-1143742-unsplash.jpg" id="SidePic" class="Side">
-    <img src="/img/morty.png" id="Mask" class="Side">
-    <div class="Side" id="ID">
-        <a style="color:white;text-decoration: none">Z131</a>
+		<div id="side-menu">
+    <img src="/img/waqar-1143742-unsplash.jpg" id="side-pic" class="side">
+    <img src="/img/morty.png" id="mask" class="side">
+    <div class="side" id="ID">
+        <a class="stdlink" href="/about">Z131</a>
     </div>
-    <br><br>
-    <div class="Side">
-        <ul id="SideNav">
+    <ul id="side-nav" class="side">
+        <li class="sidenav-bottom">
             
-                <li class="SidenavMenu">
-                    <a href="/archive/" class="SideHref">文章目录</a>
-                </li>
+            <a href="/" class="subnav">
+                <img src="/img/github.png" class="subnav-pic">
+            </a>
             
-                <li class="SidenavMenu">
-                    <a href="/tags/" class="SideHref">标签</a>
-                </li>
+            <a href="/" class="subnav">
+                <img src="/img/jike.png" class="subnav-pic">
+            </a>
             
-                <li class="SidenavMenu">
-                    <a href="/categories/" class="SideHref">归档</a>
-                </li>
-            
-        </ul>
-    </div>
+        </li>
+        
+            <li class="sidenav-bottom">
+                <a href="/tags/" class="side-href">标签</a>
+            </li>
+        
+            <li class="sidenav-bottom">
+                <a href="/categories/" class="side-href">归档</a>
+            </li>
+        
+    </ul>
 </div>
 		<br>
 		<br>
 		<div class="container">
 			<section>
-    <ul id="MainArchive">
-        <li class="PostItem">
-            <div class="PostHere">
+    <br>
+    <ul id="Main">
+        <li class="post-item">
+            <div class="post-cont">
                 <br>
                 
 <a class="PostTitle" href="/about/index.html">About Me</a>
 <div style="clear:both"></div>
-<hr class="TitleLine">
+<hr class="stdline">
 
     <div class="PostContent">
         <p>一个真的很菜的ACMer</p>
 
-        <img src="/img/post-end.png" class="PostEnd">
+         <img src="/img/post-end.png" class="post-end"> 
     </div>
 
 <br>
@@ -77,35 +82,30 @@
         </li>
     </ul>
 </section>
-<ul id="ArticleInfor">
-    <li class="SecondItem">
+<ul id="article-infor">
+    <li class="second-item">
         2018-10-24
-        <hr class="TitleLine">
-        
-        <br>
+        <hr class="stdline">
+        <div class="tag-item">
+            
+            <br>
+        </div>
     </li>
-    <li class="SecondItem">
-        Toc
-<hr class="TitleLine">
-<div id="TocItem">
     
-</div>
-    </li>
 </ul>
 <div style="clear:both"></div>
 		</div>
 		<br><br>
-		<div id="Foot">
+		<div id="foot">
 			<div id="footer">
 				<img src="/img/guoguo.png" id="cat" onselectstart="return false;">
-<p class="FootTip" id="MadeBy" onselectstart="return false;">Made by
+<p class="foot-tip" id="madeby" onselectstart="return false;">Made by
     Z131 with full heart</p>
-<p class="FootTip" id="Hexo">Powered by Hexo</p>
-<div class="FootTip" id="MainFoot">
-    <p class="FootTip" id="CopyRight">
+<p class="foot-tip" id="hexo">Powered by Hexo</p>
+<div class="foot-tip" id="main-foot">
+    <p class="foot-tip" id="copyright">
         
-        CopyRight ©
-        2018
+        CopyRight © 2018
         Z131 All rights reserved.<br>
         <a>Vgray Theme</a>
         | BackPic by @waqar-1143742-unsplash

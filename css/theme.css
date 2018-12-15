@@ -4,16 +4,15 @@ body {
     min-height: 100%;
 }
 
-#BackGround {
-    position: fixed;
-    z-index: -10;
-    width: 100%;
-    height: 100%;
-    left:0px;
-    right:0px;
-    top:0px;
-    bottom:0px;
-    margin: 0px 0px;
+.stdlink {
+    color:white;
+    text-decoration: none
+}
+
+.stdline {
+    height: 0px;
+    border-style: dashed;
+    border-width: 1px 0px 0px 0px;
 }
 
 .clear {
@@ -24,7 +23,7 @@ body {
     margin: 0px;
 }
 
-#SideMenu {
+#side-menu {
     position: fixed;
     top: 59px;
     left: 0px;
@@ -32,18 +31,7 @@ body {
     height: 100%;
 }
 
-#SideMenuButton {
-    background-color:black;
-    position: absolute;
-    border: none;
-    outline: none;
-    left: 10px;
-    top: 10px;
-    width:40px;
-    height: 40px;
-}
-
-#HeadMenu {
+#head-menu {
     color: white;
     z-index:80;
     background-color:black;
@@ -57,7 +45,7 @@ body {
     height: 60px
 }
 
-#HeadTitle {
+#title {
     font-family: "Comic Sans MS",cursive,LiSu,sans-serif;
     font-size: 25px;
     position: fixed;
@@ -69,7 +57,16 @@ body {
     text-decoration:none
 }
 
-.Side {
+#menu-bottom {
+    position: fixed;
+    background-color: black;
+    outline:0 none;
+    border:none;
+    top:15px;
+    left:10px;
+}
+
+.side {
     z-index: 100;
     text-align: center;
     position: absolute;
@@ -78,7 +75,7 @@ body {
     margin: 0px auto;
 }
 
-#Mask {
+#mask {
     width: 100px;
     height: 100px;
     top: 20px;
@@ -86,7 +83,7 @@ body {
     overflow: hidden;
 }
 
-#SidePic {
+#side-pic {
     z-index: 50;
     width: 100%;
     height: 100%;
@@ -102,7 +99,20 @@ body {
     font-size: 25px;
 }
 
-#SideNav {
+.subnav {
+    margin: 3px;
+    width: 25px;
+    height: 25px;
+}
+
+.subnav-pic {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    z-index: 140;
+}
+
+#side-nav {
     margin: 180px auto;
     padding: 0px 0px 0px 0px;
     z-index: 140;
@@ -110,7 +120,7 @@ body {
     height: 40%;
 }
 
-.SidenavMenu {
+.sidenav-bottom {
     z-index: 100;
     display: table;
     margin: 10px auto;
@@ -118,14 +128,14 @@ body {
     width: 100%;
 }
 
-.SideHref {
+.side-href {
     color: white;
     font-size: 15px;
     letter-spacing:3px;
     text-decoration:none
 }
 
-#MainArchive {
+#Main {
     z-index: 50;
     float: left;
     margin-top: 30px;
@@ -135,7 +145,7 @@ body {
     width: 800px;
 }
 
-.PostItem {
+.post-item {
     background-color: black;
     width: 100%;
     display: table;
@@ -148,24 +158,18 @@ body {
     text-align: center;
 }
 
-.PostHere {
+.post-cont {
     width: 85%;
     margin: auto auto;
 }
 
-.PostTime {
+.post-time {
     width: 100%;
     display: table;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     text-indent: 20px;
-}
-
-.TitleLine {
-    height: 0px;
-    border-style: dashed;
-    border-width: 1px 0px 0px 0px;
 }
 
 .page-number,.extend {
@@ -184,81 +188,121 @@ body {
     border-width: 0px;
 }
 
-.PostEnd {
+.post-end {
     display: block;
+    height: 80px;
     margin: 0px auto;
 }
 
-.ReadMoreButton {
+.gugu {
+    display: block;
+    height: 400px;
+    margin: 0px auto;
+}
+
+.read-more {
     display: block;
     right: 0px;
     text-align: right;
 }
 
-.SecondArchive {
+.second-archive {
     padding: 0px;
     float: left;
     margin-top: 100px;
     width: 250px;
 }
 
-#ArticleInfor {
+#article-infor {
     padding: 0px;
     float: left;
     width: 250px;
 }
 
-.SecondItem {
-    padding: 10px 20px 20px 20px;
+.second-item {
+    padding: 10px 20px 10px 20px;
     display: table;
     width: 100%;
     margin: 10px auto;
     background-color: black;
 }
 
-.WorkNote {
+.note-area {
     margin-top: 20px;
     margin-left: 20px;
 }
 
-.WorkNote-4,.WorkNote-0,.WorkNote-1,.WorkNote-2,.WorkNote-3 {
+.worknote-4,.worknote-0,.worknote-1,.worknote-2,.worknote-3 {
+    padding: 0px;
     height: 8px;
     width: 8px;
     margin: 2px;
     float: left;
+    overflow: hidden;
 }
 
-.WorkNote-0 {
+.worknote-0 {
     background-color: #858585;
+    color: #858585;
 }
 
-.WorkNote-1 {
+.worknote-1 {
     background-color: aquamarine;
+    color: aquamarine;
 }
 
-.WorkNote-2 {
+.worknote-2 {
     background-color: aqua;
+    color: aqua;
 }
 
-.WorkNote-3 {
+.worknote-3 {
     background-color: rgb(60, 73, 255);
+    color: rgb(60, 73, 255);
 }
 
-.WorkNote-4 {
+.worknote-4 {
     background-color: black;
+    color: black;
 }
 
-.WeekDay {
+.work-infor {
+    padding: 3px;
+    opacity: 0.8;
+    margin: 0;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgb(70, 70, 70);
+    position: fixed;
+    background-color: rgb(24, 24, 24);
+    z-index: 200;
+}
+
+.note-url {
+    display: block;
+    padding: 20px;
+}
+
+.infor-1 {
+    color: white;
+    font-size: 13px;
+}
+
+.infor-2 {
+    color: #c4c4c4
+}
+
+.weekday {
     margin-right: 17px;
     float: left;
     font-size: 8px;
     line-height: 8px;
 }
 
-#Foot {
+#foot {
     position:relative;
     width:100%;
-    background-color:black;
     padding: 0px;
 }
 
@@ -278,26 +322,26 @@ body {
     bottom: 0px;
 }
 
-.FootTip {
+.foot-tip {
     z-index: 150;
     font-size: 15px;
     font-family: "Comic Sans MS",cursive,LiSu,sans-serif;
     color: #858585;
 }
 
-#MadeBy {
+#madeby {
     position:absolute;
     left: 150px;
     top: 30px;
 }
 
-#Hexo {
+#hexo {
     position:absolute;
     right: 10px;
     bottom: 0px;
 }
 
-#MainFoot {
+#main-foot {
     position: absolute;
     bottom: 10px;
     width: 60%;
@@ -306,6 +350,6 @@ body {
     text-align: center
 }
 
-#CopyRight {
+#copyright {
     font-size: 10px;
 }

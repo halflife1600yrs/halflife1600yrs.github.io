@@ -1,14 +1,8 @@
-#TocItem {
-    padding: 0px;
-    margin: 0px;
-    width: 100%;
-    height: 245px;
-    overflow:scroll;
-}
-
 .toc {
     font-size: 12px;
+    height: 245px;
     color: black;
+    overflow: scroll;
 }
 
 .toc li{
@@ -19,6 +13,7 @@
 
 .toc-link {
     text-decoration: none;
+    color: aqua;
 }
 
 .toc-number {

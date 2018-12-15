@@ -20,51 +20,56 @@
 </nav>
 </head>
 	<body>
-		<div id="HeadMenu" class="Header">
-    <a id="HeadTitle" class="Header" onselectstart="return false;" href="/">
+		<div id="head-menu">
+    <a id="title" onselectstart="return false;" href="/">
         Z131&#39;s Comfort Zone
     </a>
-    <button id="SideMenuButton" class="Header" onclick="SidemenuToggle()">
+    <button id="menu-bottom" onclick="SidemenuToggle()">
         <i class="fa fa-align-justify" style="font-size: 25px;color: rgb(219, 219, 219);"></i>
     </button>
 </div>
-		<div id="SideMenu">
-    <img src="/img/waqar-1143742-unsplash.jpg" id="SidePic" class="Side">
-    <img src="/img/morty.png" id="Mask" class="Side">
-    <div class="Side" id="ID">
-        <a style="color:white;text-decoration: none">Z131</a>
+		<div id="side-menu">
+    <img src="/img/waqar-1143742-unsplash.jpg" id="side-pic" class="side">
+    <img src="/img/morty.png" id="mask" class="side">
+    <div class="side" id="ID">
+        <a class="stdlink" href="/about">Z131</a>
     </div>
-    <br><br>
-    <div class="Side">
-        <ul id="SideNav">
+    <ul id="side-nav" class="side">
+        <li class="sidenav-bottom">
             
-                <li class="SidenavMenu">
-                    <a href="/archive/" class="SideHref">文章目录</a>
-                </li>
+            <a href="/" class="subnav">
+                <img src="/img/github.png" class="subnav-pic">
+            </a>
             
-                <li class="SidenavMenu">
-                    <a href="/tags/" class="SideHref">标签</a>
-                </li>
+            <a href="/" class="subnav">
+                <img src="/img/jike.png" class="subnav-pic">
+            </a>
             
-                <li class="SidenavMenu">
-                    <a href="/categories/" class="SideHref">归档</a>
-                </li>
-            
-        </ul>
-    </div>
+        </li>
+        
+            <li class="sidenav-bottom">
+                <a href="/tags/" class="side-href">标签</a>
+            </li>
+        
+            <li class="sidenav-bottom">
+                <a href="/categories/" class="side-href">归档</a>
+            </li>
+        
+    </ul>
 </div>
 		<br>
 		<br>
 		<div class="container">
 			<section>
-    <ul id="MainArchive">
-        <li class="PostItem">
-            <div class="PostHere">
+    <br>
+    <ul id="Main">
+        <li class="post-item">
+            <div class="post-cont">
                 <br>
                 
 <a class="PostTitle" href="/2018/11/06/fft/">FFT学习笔记</a>
 <div style="clear:both"></div>
-<hr class="TitleLine">
+<hr class="stdline">
 
     <div class="PostContent">
         <blockquote>
@@ -79,7 +84,7 @@ f(x)=\{(x_0,f(x_0))，(x_1,f(x_1))，\dots，(x_n,f(x_n))\}</script><p>点值表
 \begin{matrix}
 f(x)=(a_0+a_2 x^2+a_4 x^4+…+a_{2n} x^2n )+(a_1 x+a_3 x^3+a_5 x^5+… +a_{2n+1} x^{2n+1})\\
 =(a_0+a_2 x^2+a_3 x^4+…+a_{2n} x^2n )+x·(a_1+a_3 x^2+a_5 x^4+… +a_{2n+1} x^2n)
-\end{matrix}</script><p>即$f(x)=g(x^2)+x·h(x^2)$，这样就成功地二分了这个多项式，重复下去就可以递归地计算出f(x)在一个点的值。<br>但是呢这样能够处理的式子长度必须为$2^n$，所以我们需要把不足的位数补0。<br>另外，为了方便进行递归，我们需要对这个多项式的系数进行排序。假设原系数为</p>
+\end{matrix}</script><p>即$f(x)=g(x^2)+x·h(x^2)$，这样就成功地二分了这个多项式，重复下去就可以递归地计算出f(x)在一个点的值。  但是呢这样能够处理的式子长度必须为$2^n$，所以我们需要把不足的位数补0。<br>另外，为了方便进行递归，我们需要对这个多项式的系数进行排序。假设原系数为</p>
 <script type="math/tex; mode=display">
 {a_0,a_1,a_2,a_3,a_4,a_5,a_6,a_7}</script><p>那么它在多次二分的过程中系数分别为</p>
 <script type="math/tex; mode=display">
@@ -88,13 +93,16 @@ f(x)=(a_0+a_2 x^2+a_4 x^4+…+a_{2n} x^2n )+(a_1 x+a_3 x^3+a_5 x^5+… +a_{2n+1}
 \{a_0,a_4\},\{a_2,a_6\},\{a_1,a_5\},\{a_3,a_7\}
 \end{matrix}</script><p>所以我们看到，将系数重新排为上述式子之后，我们可以直接在这个序列上方便地进行递归操作，而不需要多次复制奇数项和偶数项的系数。</p>
 <blockquote>
-<p><strong>精髓1：一个有趣的结论就是一个数二分后的位置(从0开始)正好为二分前二进制表示的翻转，比如$6=(110)_2$，它翻转后的数为$(011)_2=3$</strong><br>这个结论也十分容易证明。第一次二分时偶数在前一半，奇数在后一半，也就是末&gt;位为1的在后，为0的在前；第二次二分，仅考虑前一半的范围，排序为偶数的在前&gt;一半，即x/2(也就是x&gt;&gt;1)为偶数的在前一半，相当于看倒数第二位。以此类推，&gt;最终就相当于对每个数的二进制翻转。</p>
+<p><strong>精髓1：一个有趣的结论就是一个数二分后的位置(从0开始)正好为二分前二进制表示的翻转，比如$6=(110)_2$，它翻转后的数为$(011)_2=3$</strong> </p>
+<p>这个结论也十分容易证明。第一次二分时偶数在前一半，奇数在后一半，也就是末&gt;位为1的在后，为0的在前；第二次二分，仅考虑前一半的范围，排序为偶数的在前&gt;一半，即x/2(也就是x&gt;&gt;1)为偶数的在前一半，相当于看倒数第二位。以此类推，&gt;最终就相当于对每个数的二进制翻转。</p>
 </blockquote>
 <p>重排的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void change(ElementType* fun)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i = 1, j = ind &gt;&gt; 1; i &lt; ind - 1; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(i &lt; j) std::swap(fun[i], fun[j]);</span><br><span class="line">        int add = ind &gt;&gt; 1;</span><br><span class="line">        while(j &amp; add) j -= add, add &gt;&gt;= 1;</span><br><span class="line">        j += add;    //这行及上一行实现二进制翻转下的+1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>好，现在我们得到了一个分治方法，但是如果对每个x_i 值都这样进行分治，复杂度对于每一个$x_i$来说都是$f(start,end)=f(start,mid)+f(mid,end)$，也就是$f(n)=2f(n/2)$，还是$O(n)$。<strong>所以问题的复杂度到现在为止并没有下降反而是加大了运算的常数？？</strong><br>没有关系，既然我们已经得到了分治的方法，那么我们就有希望在这个递归过程中加入适当的操作，使得计算方法由n次循环、每次O(n)，转变为一次求得F在所有$x_i$的对应值，并使得其复杂度为：$f(start,end)=f(start,mid)+f(mid,end)+n$，也就是$O(n·log_2⁡(n))$。</p>
+<p>好，现在我们得到了一个分治方法，但是如果对每个x_i 值都这样进行分治，复杂度对于每一个$x_i$来说都是$f(start,end)=f(start,mid)+f(mid,end)$，也就是$f(n)=2f(n/2)$，还是$O(n)$。<strong>所以问题的复杂度到现在为止并没有下降反而是加大了运算的常数？？</strong>  </p>
+<p>没有关系，既然我们已经得到了分治的方法，那么我们就有希望在这个递归过程中加入适当的操作，使得计算方法由n次循环、每次O(n)，转变为一次求得F在所有$x_i$的对应值，并使得其复杂度为：$f(start,end)=f(start,mid)+f(mid,end)+n$，也就是$O(n·log_2⁡(n))$。</p>
 <h3 id="单位复根的引入"><a href="#单位复根的引入" class="headerlink" title="单位复根的引入"></a>单位复根的引入</h3><p>为了能够一次性地计算出$f(x)$在$x=x_{[0,…,n−1]}$的值，我们显然不能随意地对$x_{[0,…,n−1]}$取值，有一个思路就是恰当地取它们的值，使得它们的k次方能够尽可能多地产生重复，使得我们可以方便地通过已计算出的值推出其他位置的值  </p>
 <blockquote>
-<p>精髓2：引进单位复根<br>一个中学的重要定理：一元n次多项式的复根个数必定为n。那么$x^n=1$的解显然也有n个，我们把这些解称为为n次单位复根，而它们就是我们想要取为x的值。<br>如何计算1的n次根？<br>由复数的欧拉公式：</p>
+<p><strong>精髓2：引进单位复根</strong></p>
+<p>一个中学的重要定理：一元n次多项式的复根个数必定为n。那么$x^n=1$的解显然也有n个，我们把这些解称为为n次单位复根，而它们就是我们想要取为x的值。<br>如何计算1的n次根？<br>由复数的欧拉公式：</p>
 <script type="math/tex; mode=display">e^iπ=cosθ+isinθ</script><p>我们有$1=e^2πi$，因此n次单位根就是$e^{(2πi/n∗{[0,…,n−1]})}$，即n个矢量端点均匀分布在复数坐标系以原点为圆心的单位圆上的矢量</p>
 </blockquote>
 <p>我们将从1开始逆时针数第一个复根记为$ω_n=e^{2πi/n}$，那么所有的x值即为$1,ω_n^1,…,ω_n^{n−1}$</p>
@@ -120,7 +128,7 @@ y_0\\y_1\\y_2\\\dots\\y_n
 x_0\\x_1\\x_2\\...\\x_n
 \end{bmatrix}</script><p>左右同乘中间的大矩阵的逆之后就可以得到$a_{[0,1,…,n]}$  </p>
 <blockquote>
-<p>精髓3：根据结论，该矩阵的逆就等于各项取反再除n，即</p>
+<p><strong>精髓3：根据结论，该矩阵的逆就等于各项取反再除n，即</strong></p>
 <script type="math/tex; mode=display">
 \begin{bmatrix}
 \frac{1}{n}&\frac{1}{n}&\frac{1}{n}&...&\frac{1}{n}\\
@@ -131,7 +139,7 @@ x_0\\x_1\\x_2\\...\\x_n
 \end{bmatrix}</script></blockquote>
 <p>而显然这里可以使用和DFT相同的计算方法，只要对$ω_n$取逆（也就是将其角度设为-$θ$ )，然后将计算结果各项除以n即可</p>
 
-        <img src="/img/post-end.png" class="PostEnd">
+         <img src="/img/post-end.png" class="post-end"> 
     </div>
 
 <br>
@@ -139,37 +147,32 @@ x_0\\x_1\\x_2\\...\\x_n
         </li>
     </ul>
 </section>
-<ul id="ArticleInfor">
-    <li class="SecondItem">
+<ul id="article-infor">
+    <li class="second-item">
         2018-11-06
-        <hr class="TitleLine">
-        
+        <hr class="stdline">
+        <div class="tag-item">
+            
   	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM/">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
 
-        <br>
+            <br>
+        </div>
     </li>
-    <li class="SecondItem">
-        Toc
-<hr class="TitleLine">
-<div id="TocItem">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础支撑"><span class="toc-number">1.</span> <span class="toc-text">基础支撑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#点值表示"><span class="toc-number">1.1.</span> <span class="toc-text">点值表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分治"><span class="toc-number">1.2.</span> <span class="toc-text">分治</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单位复根的引入"><span class="toc-number">1.3.</span> <span class="toc-text">单位复根的引入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DFT-转换为点值表示"><span class="toc-number">2.</span> <span class="toc-text">DFT(转换为点值表示)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDFT-转换为系数表示"><span class="toc-number">3.</span> <span class="toc-text">IDFT(转换为系数表示)</span></a></li></ol>
-</div>
-    </li>
+    
 </ul>
 <div style="clear:both"></div>
 		</div>
 		<br><br>
-		<div id="Foot">
+		<div id="foot">
 			<div id="footer">
 				<img src="/img/guoguo.png" id="cat" onselectstart="return false;">
-<p class="FootTip" id="MadeBy" onselectstart="return false;">Made by
+<p class="foot-tip" id="madeby" onselectstart="return false;">Made by
     Z131 with full heart</p>
-<p class="FootTip" id="Hexo">Powered by Hexo</p>
-<div class="FootTip" id="MainFoot">
-    <p class="FootTip" id="CopyRight">
+<p class="foot-tip" id="hexo">Powered by Hexo</p>
+<div class="foot-tip" id="main-foot">
+    <p class="foot-tip" id="copyright">
         
-        CopyRight ©
-        2018
+        CopyRight © 2018
         Z131 All rights reserved.<br>
         <a>Vgray Theme</a>
         | BackPic by @waqar-1143742-unsplash
